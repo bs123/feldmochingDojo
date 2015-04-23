@@ -26,7 +26,15 @@ public class SantaKataTest {
 	}
 	
 	
-
+	@Test
+	public void test2BadDeeds() {
+		child = new Child();
+		child.performBadDeed();
+		child.performBadDeed();
+		assertFalse("no present", child.getGetsPresent());
+		assertEquals("should return 2 for bad deed", -3, child.getDeedAccount());
+	}
+	
 	// INTERATION 3
 	
 	@Test
@@ -39,7 +47,7 @@ public class SantaKataTest {
 
 		child.performGoodDeed();
 		
-		assertFalse("no present", child.getGetsPresent());
-		assertEquals("should return 0", 0, child.getDeedAccount());
+		assertFalse("should not receive present", child.getGetsPresent());
+		assertEquals("should return -2", -2, child.getDeedAccount());
 	}
 }
